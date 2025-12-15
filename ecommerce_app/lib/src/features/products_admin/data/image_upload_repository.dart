@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'image_upload_repository.g.dart';

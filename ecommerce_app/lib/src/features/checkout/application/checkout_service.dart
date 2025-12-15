@@ -8,7 +8,6 @@ import 'package:ecommerce_app/src/features/checkout/data/checkout_sessions_repos
 import 'package:ecommerce_app/src/features/checkout/data/payment_sheet_repository.dart';
 import 'package:ecommerce_app/src/features/checkout/data/payments_repository.dart';
 import 'package:ecommerce_app/src/features/checkout/domain/checkout_session_platform.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'checkout_service.g.dart';

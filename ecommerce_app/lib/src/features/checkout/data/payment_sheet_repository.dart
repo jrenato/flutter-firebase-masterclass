@@ -1,7 +1,6 @@
 import 'package:ecommerce_app/src/features/checkout/domain/checkout_session_platform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'payment_sheet_repository.g.dart';

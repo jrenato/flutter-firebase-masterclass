@@ -4,7 +4,6 @@ import 'package:algolia_helper_flutter/algolia_helper_flutter.dart';
 import 'package:ecommerce_app/env.dart';
 import 'package:ecommerce_app/src/features/products/data/products_repository.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'products_search_repository.g.dart';

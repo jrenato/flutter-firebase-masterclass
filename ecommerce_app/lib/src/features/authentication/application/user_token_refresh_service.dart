@@ -4,7 +4,6 @@ import 'package:ecommerce_app/src/features/authentication/data/auth_repository.d
 import 'package:ecommerce_app/src/features/authentication/data/user_metadata_repository.dart';
 import 'package:ecommerce_app/src/features/authentication/domain/app_user.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_token_refresh_service.g.dart';

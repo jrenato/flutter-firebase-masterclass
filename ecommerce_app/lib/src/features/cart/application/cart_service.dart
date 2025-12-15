@@ -8,7 +8,6 @@ import 'package:ecommerce_app/src/features/cart/domain/item.dart';
 import 'package:ecommerce_app/src/features/cart/domain/mutable_cart.dart';
 import 'package:ecommerce_app/src/features/products/data/products_repository.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_service.g.dart';
@@ -111,8 +110,7 @@ Future<double> cartTotal(Ref ref) async {
 // * Returns a list of records representing all the products in the cart
 // * along with their quantity
 @riverpod
-Future<List<({Product product, int quantity})>> productsInCart(
-    Ref ref) async {
+Future<List<({Product product, int quantity})>> productsInCart(Ref ref) async {
   final cart = await ref.watch(cartProvider.future);
   if (cart.items.isNotEmpty) {
     List<({Product product, int quantity})> products = [];

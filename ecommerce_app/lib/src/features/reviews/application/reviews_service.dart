@@ -3,7 +3,6 @@ import 'package:ecommerce_app/src/features/authentication/data/auth_repository.d
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 import 'package:ecommerce_app/src/features/reviews/data/reviews_repository.dart';
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'reviews_service.g.dart';

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:ecommerce_app/src/features/products/data/products_search_repository.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
-import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:rxdart/rxdart.dart';
 
