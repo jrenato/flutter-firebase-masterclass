@@ -49,7 +49,7 @@ class AdminProductEditController extends _$AdminProductEditController
   }
 
   Future<void> deleteProduct(Product product) async {
-    final imageUploadService = ref.read(imageUploadServiceProvider);
+    final imageUploadService = ref.read(imageUploadServiceProvider.notifier);
     state = const AsyncLoading();
     final value =
         await AsyncValue.guard(() => imageUploadService.deleteProduct(product));

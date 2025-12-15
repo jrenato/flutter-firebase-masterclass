@@ -100,4 +100,4 @@ final class ProductsSearchResultsProvider extends $FunctionalProvider<
 }
 
 String _$productsSearchResultsHash() =>
-    r'd6270ebf410842b4e50182c87a49e1c9fe7037b6';
+    r'1c756b5826039e5f90a930e0a1554f46d6f6f214';

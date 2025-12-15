@@ -8,14 +8,18 @@ part of 'image_upload_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier-based service for uploading and deleting product images
+/// This pattern is recommended in Riverpod 3 for services with async operations
 
-@ProviderFor(imageUploadService)
+@ProviderFor(ImageUploadService)
 const imageUploadServiceProvider = ImageUploadServiceProvider._();
 
-final class ImageUploadServiceProvider extends $FunctionalProvider<
-    ImageUploadService,
-    ImageUploadService,
-    ImageUploadService> with $Provider<ImageUploadService> {
+/// Notifier-based service for uploading and deleting product images
+/// This pattern is recommended in Riverpod 3 for services with async operations
+final class ImageUploadServiceProvider
+    extends $NotifierProvider<ImageUploadService, void> {
+  /// Notifier-based service for uploading and deleting product images
+  /// This pattern is recommended in Riverpod 3 for services with async operations
   const ImageUploadServiceProvider._()
       : super(
           from: null,
@@ -32,23 +36,32 @@ final class ImageUploadServiceProvider extends $FunctionalProvider<
 
   @$internal
   @override
-  $ProviderElement<ImageUploadService> $createElement(
-          $ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  ImageUploadService create(Ref ref) {
-    return imageUploadService(ref);
-  }
+  ImageUploadService create() => ImageUploadService();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(ImageUploadService value) {
+  Override overrideWithValue(void value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<ImageUploadService>(value),
+      providerOverride: $SyncValueProvider<void>(value),
     );
   }
 }
 
 String _$imageUploadServiceHash() =>
-    r'5f5f67780f1da91f481517fa84fe682195930a58';
+    r'1d552e3a1c7d1dd9a7efdf3522f273daacd818f7';
+
+/// Notifier-based service for uploading and deleting product images
+/// This pattern is recommended in Riverpod 3 for services with async operations
+
+abstract class _$ImageUploadService extends $Notifier<void> {
+  void build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<void, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<void, void>, void, Object?, Object?>;
+    element.handleValue(ref, null);
+  }
+}
