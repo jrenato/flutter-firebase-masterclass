@@ -12,11 +12,10 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'checkout_service.g.dart';
 
-/// Class used to place an order (checkout)
-class CheckoutService {
-  CheckoutService(this._ref);
-  final Ref _ref;
-
+/// Notifier-based service for checkout and payment processing
+/// This pattern is recommended in Riverpod 3 for services with async operations
+@Riverpod(keepAlive: true)
+class CheckoutService extends _$CheckoutService {
   /// listen to checkout session updates with this subscription
   StreamSubscription<void>? _checkoutSessionSubscription;
 
@@ -26,13 +25,29 @@ class CheckoutService {
   /// used to tell the pay method when the listener has completed
   late Completer _completer;
 
+  @override
+  void build() {
+    // Register cleanup when service is disposed
+    ref.onDispose(_dispose);
+  }
+
+  void _dispose() {
+    _checkoutSessionSubscription?.cancel();
+    _paymentSubscription?.cancel();
+  }
+
   /// Public method to place an order
   Future<void> pay({
     required bool isWeb,
     String? windowUrl,
     void Function(String)? webUrlCallback,
   }) async {
-    final user = _ref.read(authRepositoryProvider).currentUser;
+    // Ref is lifecycle-managed by the Notifier
+    // Safe to use across async gaps
+    final authRepository = ref.read(authRepositoryProvider);
+    final checkoutSessionsRepository = ref.read(checkoutSessionsRepositoryProvider);
+
+    final user = authRepository.currentUser;
     if (user == null) {
       throw UserNotSignedInException();
     }
@@ -42,12 +57,12 @@ class CheckoutService {
     _checkoutSessionSubscription?.cancel();
 
     // * calculate cart total
-    final cartTotal = await _ref.read(cartTotalProvider.future);
+    final cartTotal = await ref.read(cartTotalProvider.future);
     // https://stripe.com/docs/api/payment_intents/object#payment_intent_object-amount
     final paymentAmount = (cartTotal * 100).round();
 
     // * get all the products in the cart along with their quantity
-    final productsInCart = await _ref.read(productsInCartProvider.future);
+    final productsInCart = await ref.read(productsInCartProvider.future);
 
     // * get the cancel and success URLs from the windowUrl
     final cancelUrl = windowUrl;
@@ -62,24 +77,21 @@ class CheckoutService {
     }();
 
     // * write the checkout session
-    final sessionId = await _ref
-        .read(checkoutSessionsRepositoryProvider)
-        .writeCheckoutSession(
-          uid: user.uid,
-          amount: paymentAmount,
-          productsInCart: productsInCart,
-          isWeb: isWeb,
-          cancelUrl: cancelUrl,
-          successUrl: successUrl,
-        );
+    final sessionId = await checkoutSessionsRepository.writeCheckoutSession(
+      uid: user.uid,
+      amount: paymentAmount,
+      productsInCart: productsInCart,
+      isWeb: isWeb,
+      cancelUrl: cancelUrl,
+      successUrl: successUrl,
+    );
 
     // * Once we've written the checkout session, Stripe will process it and
     // * write the paymentIntentClientSecret, ephemeralKeySecret, and customer
     // * back to it.
     // * So here we listen for changes and once we have a payment intent object,
     // * we use it to show the appropriate payment UI depending on the platform
-    _checkoutSessionSubscription = _ref
-        .read(checkoutSessionsRepositoryProvider)
+    _checkoutSessionSubscription = checkoutSessionsRepository
         .watchCheckoutSession(user.uid, sessionId)
         .listen((session) async {
       final sessionData = session.platformData;
@@ -112,17 +124,20 @@ class CheckoutService {
     required String currencyCode,
     required CheckoutSessionMobileData sessionData,
   }) async {
+    // Ref is lifecycle-managed by the Notifier
+    final paymentSheetRepository = ref.read(paymentSheetRepositoryProvider);
+    final paymentsRepository = ref.read(paymentsRepositoryProvider);
+
     try {
-      await _ref.read(paymentSheetRepositoryProvider).initPaymentSheet(
-            email: user.email!,
-            amount: amount,
-            currencyCode: currencyCode,
-            session: sessionData,
-          );
+      await paymentSheetRepository.initPaymentSheet(
+        email: user.email!,
+        amount: amount,
+        currencyCode: currencyCode,
+        session: sessionData,
+      );
 
       // Present payment sheet
-      final success =
-          await _ref.read(paymentSheetRepositoryProvider).presentPaymentSheet();
+      final success = await paymentSheetRepository.presentPaymentSheet();
       if (success) {
         // the paymentIntentClientSecret looks like this in Firebase:
         // Example: pi_3NpTonFM8wJkf9qo1S88cFMY_secret_R7ogsCVPaAprESUdAUnSOhOY5
@@ -130,8 +145,7 @@ class CheckoutService {
         final components = sessionData.paymentIntentClientSecret.split('_');
         final paymentIntent = '${components[0]}_${components[1]}';
         // listen and wait until the payment has been completed
-        _paymentSubscription = _ref
-            .read(paymentsRepositoryProvider)
+        _paymentSubscription = paymentsRepository
             .watchPayment(user.uid, paymentIntent)
             .listen((payment) {
           if (payment != null) {
@@ -148,17 +162,4 @@ class CheckoutService {
       _completer.completeError(e, st);
     }
   }
-
-  // cleanup
-  void dispose() {
-    _checkoutSessionSubscription?.cancel();
-    _paymentSubscription?.cancel();
-  }
-}
-
-@Riverpod(keepAlive: true)
-CheckoutService checkoutService(Ref ref) {
-  final service = CheckoutService(ref);
-  ref.onDispose(service.dispose);
-  return service;
 }

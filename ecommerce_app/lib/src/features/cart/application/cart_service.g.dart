@@ -8,13 +8,17 @@ part of 'cart_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier-based service for managing cart operations
+/// This pattern is recommended in Riverpod 3 for services with async operations
 
-@ProviderFor(cartService)
+@ProviderFor(CartService)
 const cartServiceProvider = CartServiceProvider._();
 
-final class CartServiceProvider
-    extends $FunctionalProvider<CartService, CartService, CartService>
-    with $Provider<CartService> {
+/// Notifier-based service for managing cart operations
+/// This pattern is recommended in Riverpod 3 for services with async operations
+final class CartServiceProvider extends $NotifierProvider<CartService, void> {
+  /// Notifier-based service for managing cart operations
+  /// This pattern is recommended in Riverpod 3 for services with async operations
   const CartServiceProvider._()
       : super(
           from: null,
@@ -31,24 +35,34 @@ final class CartServiceProvider
 
   @$internal
   @override
-  $ProviderElement<CartService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  CartService create(Ref ref) {
-    return cartService(ref);
-  }
+  CartService create() => CartService();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(CartService value) {
+  Override overrideWithValue(void value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<CartService>(value),
+      providerOverride: $SyncValueProvider<void>(value),
     );
   }
 }
 
-String _$cartServiceHash() => r'39c8f9110000b97aacdb92c65d04e7d467a05feb';
+String _$cartServiceHash() => r'b24612c76188e6e8c56093748021692bc2f0273d';
+
+/// Notifier-based service for managing cart operations
+/// This pattern is recommended in Riverpod 3 for services with async operations
+
+abstract class _$CartService extends $Notifier<void> {
+  void build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<void, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<void, void>, void, Object?, Object?>;
+    element.handleValue(ref, null);
+  }
+}
 
 @ProviderFor(cart)
 const cartProvider = CartProvider._();

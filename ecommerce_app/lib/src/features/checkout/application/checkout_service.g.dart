@@ -8,12 +8,18 @@ part of 'checkout_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier-based service for checkout and payment processing
+/// This pattern is recommended in Riverpod 3 for services with async operations
 
-@ProviderFor(checkoutService)
+@ProviderFor(CheckoutService)
 const checkoutServiceProvider = CheckoutServiceProvider._();
 
-final class CheckoutServiceProvider extends $FunctionalProvider<CheckoutService,
-    CheckoutService, CheckoutService> with $Provider<CheckoutService> {
+/// Notifier-based service for checkout and payment processing
+/// This pattern is recommended in Riverpod 3 for services with async operations
+final class CheckoutServiceProvider
+    extends $NotifierProvider<CheckoutService, void> {
+  /// Notifier-based service for checkout and payment processing
+  /// This pattern is recommended in Riverpod 3 for services with async operations
   const CheckoutServiceProvider._()
       : super(
           from: null,
@@ -30,21 +36,31 @@ final class CheckoutServiceProvider extends $FunctionalProvider<CheckoutService,
 
   @$internal
   @override
-  $ProviderElement<CheckoutService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  CheckoutService create(Ref ref) {
-    return checkoutService(ref);
-  }
+  CheckoutService create() => CheckoutService();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(CheckoutService value) {
+  Override overrideWithValue(void value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<CheckoutService>(value),
+      providerOverride: $SyncValueProvider<void>(value),
     );
   }
 }
 
-String _$checkoutServiceHash() => r'5eb3bc74e086e921d8b0c447576bedbda26d4145';
+String _$checkoutServiceHash() => r'c2cb86e05cad01f0cadfe6a28c9e917f295dfaa9';
+
+/// Notifier-based service for checkout and payment processing
+/// This pattern is recommended in Riverpod 3 for services with async operations
+
+abstract class _$CheckoutService extends $Notifier<void> {
+  void build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<void, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<void, void>, void, Object?, Object?>;
+    element.handleValue(ref, null);
+  }
+}

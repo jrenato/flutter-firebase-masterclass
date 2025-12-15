@@ -34,7 +34,7 @@ void main() {
       remoteCartRepositoryProvider.overrideWithValue(remoteCartRepository),
     ]);
     addTearDown(container.dispose);
-    return container.read(cartSyncServiceProvider);
+    return container.read(cartSyncServiceProvider.notifier);
   }
 
   group('CartSyncService', () {

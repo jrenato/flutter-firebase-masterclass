@@ -6,8 +6,8 @@ import 'package:ecommerce_app/src/features/reviews/data/reviews_repository.dart'
 import 'package:ecommerce_app/src/features/reviews/domain/review.dart';
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 
-class FakeReviewsService implements ReviewsService {
-  const FakeReviewsService({
+class FakeReviewsService extends ReviewsService {
+  FakeReviewsService({
     required this.fakeProductsRepository,
     required this.authRepository,
     required this.reviewsRepository,
@@ -18,6 +18,11 @@ class FakeReviewsService implements ReviewsService {
   final FakeProductsRepository fakeProductsRepository;
   final AuthRepository authRepository;
   final ReviewsRepository reviewsRepository;
+
+  @override
+  void build() {
+    // nothing to initialize for the fake
+  }
 
   @override
   Future<void> submitReview({

@@ -89,8 +89,9 @@ class _AdminProductScreenContentsState
   }
 
   Future<void> _loadFromTemplate() async {
-    final template = await ref.read(templateProductProvider(product.id).future);
-    if (template != null) {
+    final templateProvider = templateProductProvider(product.id);
+    final template = await ref.read(templateProvider.future);
+    if (template != null && mounted) {
       _titleController.text = template.title;
       _descriptionController.text = template.description;
       _priceController.text = template.price.toString();

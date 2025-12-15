@@ -8,10 +8,13 @@ import 'package:ecommerce_app/src/features/products/data/fake_products_repositor
 import 'package:ecommerce_app/src/localization/string_hardcoded.dart';
 
 /// A fake checkout service that doesn't process real payments.
-class FakeCheckoutService implements CheckoutService {
+///
+/// Extends [CheckoutService] so it can be provided via `checkoutServiceProvider`
+/// overrides in fake/test environments.
+class FakeCheckoutService extends CheckoutService {
   // * To make writing unit tests easier, here we pass all dependencies as
   // * arguments rather than using a Ref
-  const FakeCheckoutService({
+  FakeCheckoutService({
     required this.authRepository,
     required this.remoteCartRepository,
     required this.fakeOrdersRepository,
@@ -26,6 +29,11 @@ class FakeCheckoutService implements CheckoutService {
   final FakeOrdersRepository fakeOrdersRepository;
   final FakeProductsRepository fakeProducsRepository;
   final DateTime Function() currentDateBuilder;
+
+  @override
+  void build() {
+    // nothing to initialize for the fake
+  }
 
   /// Temporary client-side logic for placing an order.
   /// Part of this logic should run on the server, so that we can:
@@ -81,10 +89,5 @@ class FakeCheckoutService implements CheckoutService {
             fakeProducsRepository.getProduct(entry.key)!.price) // price
         // then add them up
         .reduce((value, element) => value + element);
-  }
-
-  @override
-  void dispose() {
-    // no-op
   }
 }

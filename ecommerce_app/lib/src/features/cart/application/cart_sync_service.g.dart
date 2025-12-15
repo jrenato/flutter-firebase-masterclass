@@ -8,12 +8,21 @@ part of 'cart_sync_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier-based service for syncing cart between local and remote storage
+/// This pattern is recommended in Riverpod 3 for services with async operations
+// * Using keepAlive since this should live for the entire app lifecycle
 
-@ProviderFor(cartSyncService)
+@ProviderFor(CartSyncService)
 const cartSyncServiceProvider = CartSyncServiceProvider._();
 
-final class CartSyncServiceProvider extends $FunctionalProvider<CartSyncService,
-    CartSyncService, CartSyncService> with $Provider<CartSyncService> {
+/// Notifier-based service for syncing cart between local and remote storage
+/// This pattern is recommended in Riverpod 3 for services with async operations
+// * Using keepAlive since this should live for the entire app lifecycle
+final class CartSyncServiceProvider
+    extends $NotifierProvider<CartSyncService, void> {
+  /// Notifier-based service for syncing cart between local and remote storage
+  /// This pattern is recommended in Riverpod 3 for services with async operations
+// * Using keepAlive since this should live for the entire app lifecycle
   const CartSyncServiceProvider._()
       : super(
           from: null,
@@ -30,21 +39,32 @@ final class CartSyncServiceProvider extends $FunctionalProvider<CartSyncService,
 
   @$internal
   @override
-  $ProviderElement<CartSyncService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  CartSyncService create(Ref ref) {
-    return cartSyncService(ref);
-  }
+  CartSyncService create() => CartSyncService();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(CartSyncService value) {
+  Override overrideWithValue(void value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<CartSyncService>(value),
+      providerOverride: $SyncValueProvider<void>(value),
     );
   }
 }
 
-String _$cartSyncServiceHash() => r'cf9f84eba25f9912f92c7064e699c8d977925b15';
+String _$cartSyncServiceHash() => r'24c699f42b4f60e9946a42552043b5af91ce55e3';
+
+/// Notifier-based service for syncing cart between local and remote storage
+/// This pattern is recommended in Riverpod 3 for services with async operations
+// * Using keepAlive since this should live for the entire app lifecycle
+
+abstract class _$CartSyncService extends $Notifier<void> {
+  void build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<void, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<void, void>, void, Object?, Object?>;
+    element.handleValue(ref, null);
+  }
+}

@@ -12,7 +12,7 @@ class ShoppingCartScreenController extends _$ShoppingCartScreenController {
     // nothing to do
   }
 
-  CartService get _cartService => ref.read(cartServiceProvider);
+  CartService get _cartService => ref.read(cartServiceProvider.notifier);
 
   Future<void> updateItemQuantity(ProductID productId, int quantity) async {
     state = const AsyncLoading();

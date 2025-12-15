@@ -34,7 +34,7 @@ final class AddToCartControllerProvider
 }
 
 String _$addToCartControllerHash() =>
-    r'9561d9e66460bf7ea99dce03b7a5900b38a7f930';
+    r'85923a4fda13fb1a5d649cb46bdb50f3a0fa24c6';
 
 abstract class _$AddToCartController extends $AsyncNotifier<void> {
   FutureOr<void> build();

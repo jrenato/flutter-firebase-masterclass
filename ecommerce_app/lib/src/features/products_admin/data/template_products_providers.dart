@@ -32,7 +32,7 @@ Stream<List<Product>> templateProductsList(Ref ref) {
   });
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 Stream<Product?> templateProduct(Ref ref, ProductID id) {
   return ref.watch(templateProductsRepositoryProvider).watchProduct(id);
 }

@@ -35,7 +35,7 @@ final class ShoppingCartScreenControllerProvider
 }
 
 String _$shoppingCartScreenControllerHash() =>
-    r'24035b115aa5ceac6df133b59a198ade490d9d37';
+    r'd1c3fb203a3aaa8b575efc5e8406072e902b52b4';
 
 abstract class _$ShoppingCartScreenController extends $AsyncNotifier<void> {
   FutureOr<void> build();

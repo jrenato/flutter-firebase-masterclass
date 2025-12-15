@@ -7,29 +7,34 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'reviews_service.g.dart';
 
-class ReviewsService {
-  ReviewsService(this._ref);
-  final Ref _ref;
+/// Notifier-based service for submitting product reviews
+/// This pattern is recommended in Riverpod 3 for services with async operations
+@riverpod
+class ReviewsService extends _$ReviewsService {
+  @override
+  void build() {
+    // No initial state needed
+  }
 
   Future<void> submitReview({
     required ProductID productId,
     required Review review,
   }) async {
-    final user = _ref.read(authRepositoryProvider).currentUser;
+    // Ref is lifecycle-managed by the Notifier
+    // Safe to use across async gaps
+    final authRepository = ref.read(authRepositoryProvider);
+    final reviewsRepository = ref.read(reviewsRepositoryProvider);
+
+    final user = authRepository.currentUser;
     if (user == null) {
       throw UserNotSignedInException();
     }
-    await _ref.read(reviewsRepositoryProvider).setReview(
-          productId: productId,
-          uid: user.uid,
-          review: review,
-        );
+    await reviewsRepository.setReview(
+      productId: productId,
+      uid: user.uid,
+      review: review,
+    );
   }
-}
-
-@riverpod
-ReviewsService reviewsService(Ref ref) {
-  return ReviewsService(ref);
 }
 
 /// Check if a product was previously reviewed by the user

@@ -35,7 +35,7 @@ final class AdminProductUploadControllerProvider
 }
 
 String _$adminProductUploadControllerHash() =>
-    r'15e2c67290aa554d75c956b1a81aabb35484cc24';
+    r'a5efa1b03b9524d17940d9d7652199a8dc5608c3';
 
 abstract class _$AdminProductUploadController extends $AsyncNotifier<void> {
   FutureOr<void> build();

@@ -35,7 +35,7 @@ final class AdminProductEditControllerProvider
 }
 
 String _$adminProductEditControllerHash() =>
-    r'4889ae22666506a4277749ed0b1b98e35ce73194';
+    r'a2155d189fb5b34f473b760bf093988ded75c209';
 
 abstract class _$AdminProductEditController extends $AsyncNotifier<void> {
   FutureOr<void> build();

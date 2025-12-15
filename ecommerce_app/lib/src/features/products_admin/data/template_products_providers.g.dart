@@ -109,7 +109,7 @@ final class TemplateProductProvider extends $FunctionalProvider<
       : super(
           retry: null,
           name: r'templateProductProvider',
-          isAutoDispose: true,
+          isAutoDispose: false,
           dependencies: null,
           $allTransitiveDependencies: null,
         );
@@ -149,7 +149,7 @@ final class TemplateProductProvider extends $FunctionalProvider<
   }
 }
 
-String _$templateProductHash() => r'172ed48de1738a604e65fdca1737240b4dfc5d7a';
+String _$templateProductHash() => r'e34d186ef6ec4fde0639b34f991784aa08b6777e';
 
 final class TemplateProductFamily extends $Family
     with $FunctionalFamilyOverride<Stream<Product?>, ProductID> {
@@ -159,7 +159,7 @@ final class TemplateProductFamily extends $Family
           name: r'templateProductProvider',
           dependencies: null,
           $allTransitiveDependencies: null,
-          isAutoDispose: true,
+          isAutoDispose: false,
         );
 
   TemplateProductProvider call(

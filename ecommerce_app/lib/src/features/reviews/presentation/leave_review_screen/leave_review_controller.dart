@@ -28,7 +28,7 @@ class LeaveReviewController extends _$LeaveReviewController
         rating != previousReview.rating ||
         comment != previousReview.comment) {
       final currentDateBuilder = ref.read(currentDateBuilderProvider);
-      final reviewsService = ref.read(reviewsServiceProvider);
+      final reviewsService = ref.read(reviewsServiceProvider.notifier);
       final review = Review(
         rating: rating,
         comment: comment,

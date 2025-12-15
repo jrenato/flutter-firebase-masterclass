@@ -12,10 +12,16 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_service.g.dart';
 
-class CartService {
-  CartService(this.ref);
-  final Ref ref;
+/// Notifier-based service for managing cart operations
+/// This pattern is recommended in Riverpod 3 for services with async operations
+@riverpod
+class CartService extends _$CartService {
+  @override
+  void build() {
+    // No initial state needed
+  }
 
+  // Ref is lifecycle-managed by the Notifier
   AuthRepository get authRepository => ref.read(authRepositoryProvider);
   RemoteCartRepository get remoteCartRepository =>
       ref.read(remoteCartRepositoryProvider);
@@ -65,11 +71,6 @@ class CartService {
     final updated = cart.removeItemById(productId);
     await _setCart(updated);
   }
-}
-
-@riverpod
-CartService cartService(Ref ref) {
-  return CartService(ref);
 }
 
 @riverpod

@@ -8,13 +8,18 @@ part of 'reviews_service.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier-based service for submitting product reviews
+/// This pattern is recommended in Riverpod 3 for services with async operations
 
-@ProviderFor(reviewsService)
+@ProviderFor(ReviewsService)
 const reviewsServiceProvider = ReviewsServiceProvider._();
 
+/// Notifier-based service for submitting product reviews
+/// This pattern is recommended in Riverpod 3 for services with async operations
 final class ReviewsServiceProvider
-    extends $FunctionalProvider<ReviewsService, ReviewsService, ReviewsService>
-    with $Provider<ReviewsService> {
+    extends $NotifierProvider<ReviewsService, void> {
+  /// Notifier-based service for submitting product reviews
+  /// This pattern is recommended in Riverpod 3 for services with async operations
   const ReviewsServiceProvider._()
       : super(
           from: null,
@@ -31,24 +36,34 @@ final class ReviewsServiceProvider
 
   @$internal
   @override
-  $ProviderElement<ReviewsService> $createElement($ProviderPointer pointer) =>
-      $ProviderElement(pointer);
-
-  @override
-  ReviewsService create(Ref ref) {
-    return reviewsService(ref);
-  }
+  ReviewsService create() => ReviewsService();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(ReviewsService value) {
+  Override overrideWithValue(void value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<ReviewsService>(value),
+      providerOverride: $SyncValueProvider<void>(value),
     );
   }
 }
 
-String _$reviewsServiceHash() => r'5978f80723f9549750dc8c990b769ce52a61d619';
+String _$reviewsServiceHash() => r'ca3db5473ba3bb215d67a10203c13e5871c2b42e';
+
+/// Notifier-based service for submitting product reviews
+/// This pattern is recommended in Riverpod 3 for services with async operations
+
+abstract class _$ReviewsService extends $Notifier<void> {
+  void build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<void, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<void, void>, void, Object?, Object?>;
+    element.handleValue(ref, null);
+  }
+}
 
 /// Check if a product was previously reviewed by the user
 

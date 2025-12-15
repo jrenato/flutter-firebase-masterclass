@@ -13,7 +13,7 @@ class AddToCartController extends _$AddToCartController {
   }
 
   Future<void> addItem(ProductID productId) async {
-    final cartService = ref.read(cartServiceProvider);
+    final cartService = ref.read(cartServiceProvider.notifier);
     final quantity = ref.read(itemQuantityControllerProvider);
     final item = Item(productId: productId, quantity: quantity);
     state = const AsyncLoading<void>();

@@ -13,13 +13,14 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'cart_sync_service.g.dart';
 
-class CartSyncService {
-  CartSyncService(this.ref) {
-    _init();
-  }
-  final Ref ref;
-
-  void _init() {
+/// Notifier-based service for syncing cart between local and remote storage
+/// This pattern is recommended in Riverpod 3 for services with async operations
+// * Using keepAlive since this should live for the entire app lifecycle
+@Riverpod(keepAlive: true)
+class CartSyncService extends _$CartSyncService {
+  @override
+  void build() {
+    // Listen for auth state changes and sync cart when user signs in
     ref.listen<AsyncValue<AppUser?>>(authStateChangesProvider,
         (previous, next) {
       final previousUser = previous?.value;
@@ -33,13 +34,17 @@ class CartSyncService {
   /// moves all items from the local to the remote cart taking into account the
   /// available quantities
   Future<void> _moveItemsToRemoteCart(UserID uid) async {
+    // Ref is lifecycle-managed by the Notifier
+    // Safe to use across async gaps
+    final errorLogger = ref.read(errorLoggerProvider);
+    final localCartRepository = ref.read(localCartRepositoryProvider);
+    final remoteCartRepository = ref.read(remoteCartRepositoryProvider);
+
     try {
       // Get the local cart data
-      final localCartRepository = ref.read(localCartRepositoryProvider);
       final localCart = await localCartRepository.fetchCart();
       if (localCart.items.isNotEmpty) {
         // Get the remote cart data
-        final remoteCartRepository = ref.read(remoteCartRepositoryProvider);
         final remoteCart = await remoteCartRepository.fetchCart(uid);
         final localItemsToAdd =
             await _getLocalItemsToAdd(localCart, remoteCart);
@@ -51,12 +56,13 @@ class CartSyncService {
         await localCartRepository.setCart(const Cart());
       }
     } catch (e, st) {
-      ref.read(errorLoggerProvider).logError(e, st);
+      errorLogger.logError(e, st);
     }
   }
 
   Future<List<Item>> _getLocalItemsToAdd(
       Cart localCart, Cart remoteCart) async {
+    // Ref is lifecycle-managed by the Notifier
     // Get the list of products (needed to read the available quantities)
     final productsRepository = ref.read(productsRepositoryProvider);
     final products = await productsRepository.fetchProductsList();
@@ -81,10 +87,4 @@ class CartSyncService {
     }
     return localItemsToAdd;
   }
-}
-
-// * Using keepAlive since this should live for the entire app lifecycle
-@Riverpod(keepAlive: true)
-CartSyncService cartSyncService(Ref ref) {
-  return CartSyncService(ref);
 }

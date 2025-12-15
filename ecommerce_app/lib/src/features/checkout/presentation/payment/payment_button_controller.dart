@@ -20,7 +20,7 @@ class PaymentButtonController extends _$PaymentButtonController
     String? windowUrl,
     void Function(String)? webUrlCallback,
   }) async {
-    final checkoutService = ref.read(checkoutServiceProvider);
+    final checkoutService = ref.read(checkoutServiceProvider.notifier);
     state = const AsyncLoading();
     final newState = await AsyncValue.guard(() => checkoutService.pay(
           isWeb: isWeb,

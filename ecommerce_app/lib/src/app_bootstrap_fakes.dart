@@ -74,8 +74,12 @@ extension AppBootstrapFakes on AppBootstrap {
         localCartRepositoryProvider.overrideWithValue(localCartRepository),
         remoteCartRepositoryProvider.overrideWithValue(remoteCartRepository),
         // services
-        checkoutServiceProvider.overrideWithValue(checkoutService),
-        reviewsServiceProvider.overrideWithValue(reviewsService),
+        checkoutServiceProvider.overrideWith(
+          () => checkoutService,
+        ),
+        reviewsServiceProvider.overrideWith(
+          () => reviewsService,
+        ),
       ],
       observers: [AsyncErrorLogger()],
     );
