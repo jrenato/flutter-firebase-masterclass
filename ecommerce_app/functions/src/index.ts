@@ -9,40 +9,41 @@ import { makeAdminIfWhitelisted } from "./admin"
 
 exports.onUserCreated = functionsV1.auth.user().onCreate((user, _) => makeAdminIfWhitelisted(user))
 
-import { stripeSecretKey } from "./stripe_secret"
-// Stripe triggers
-import {
-  onStripeProductWritten,
-  onStripePriceWritten,
-  onStripeCustomerCreated,
-  onStripePaymentWritten,
-} from "./stripe"
+// Stripe functions commented out - uncomment when you have STRIPE_SECRET_KEY configured
+// import { stripeSecretKey } from "./stripe_secret"
+// // Stripe triggers
+// import {
+//   onStripeProductWritten,
+//   onStripePriceWritten,
+//   onStripeCustomerCreated,
+//   onStripePaymentWritten,
+// } from "./stripe"
 
-// Triggered when a Stripe product is written to Firestore
-exports.onStripeProductWritten = functionsV2.firestore.onDocumentWritten(
-  "/stripe_products/{id}",
-  onStripeProductWritten,
-)
+// // Triggered when a Stripe product is written to Firestore
+// exports.onStripeProductWritten = functionsV2.firestore.onDocumentWritten(
+//   "/stripe_products/{id}",
+//   onStripeProductWritten,
+// )
 
-// Triggered when a Stripe price is written to Firestore
-exports.onStripePriceWritten = functionsV2.firestore.onDocumentWritten(
-  "/stripe_products/{id}/prices/{priceId}",
-  onStripePriceWritten,
-)
+// // Triggered when a Stripe price is written to Firestore
+// exports.onStripePriceWritten = functionsV2.firestore.onDocumentWritten(
+//   "/stripe_products/{id}/prices/{priceId}",
+//   onStripePriceWritten,
+// )
 
-// Triggered when a Stripe customer is created
-exports.onStripeCustomerCreated = functionsV2.firestore.onDocumentCreated(
-  "/stripe_customers/{id}",
-  onStripeCustomerCreated,
-)
+// // Triggered when a Stripe customer is created
+// exports.onStripeCustomerCreated = functionsV2.firestore.onDocumentCreated(
+//   "/stripe_customers/{id}",
+//   onStripeCustomerCreated,
+// )
 
-exports.onStripePaymentWritten = functionsV2.firestore.onDocumentWritten(
-  {
-    document: "/stripe_customers/{stripeId}/payments/{paymentId}",
-    secrets: [stripeSecretKey],
-  },
-  onStripePaymentWritten,
-)
+// exports.onStripePaymentWritten = functionsV2.firestore.onDocumentWritten(
+//   {
+//     document: "/stripe_customers/{stripeId}/payments/{paymentId}",
+//     secrets: [stripeSecretKey],
+//   },
+//   onStripePaymentWritten,
+// )
 
 // Ratings
 import { updateRating } from "./ratings"
