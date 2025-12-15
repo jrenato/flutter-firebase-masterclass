@@ -44,7 +44,7 @@ class _ProductsSearchTextFieldState
                     onPressed: () {
                       _controller.clear();
                       ref
-                          .read(productsSearchQueryNotifierProvider.notifier)
+                          .read(productsSearchQueryProvider.notifier)
                           .setQuery('');
                     },
                     icon: const Icon(Icons.clear),
@@ -52,7 +52,7 @@ class _ProductsSearchTextFieldState
                 : null,
           ),
           onChanged: (text) => ref
-              .read(productsSearchQueryNotifierProvider.notifier)
+              .read(productsSearchQueryProvider.notifier)
               .setQuery(text),
         );
       },

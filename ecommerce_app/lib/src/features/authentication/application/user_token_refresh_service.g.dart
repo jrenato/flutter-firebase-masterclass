@@ -6,24 +6,49 @@ part of 'user_token_refresh_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(userTokenRefreshService)
+const userTokenRefreshServiceProvider = UserTokenRefreshServiceProvider._();
+
+final class UserTokenRefreshServiceProvider extends $FunctionalProvider<
+    UserTokenRefreshService,
+    UserTokenRefreshService,
+    UserTokenRefreshService> with $Provider<UserTokenRefreshService> {
+  const UserTokenRefreshServiceProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'userTokenRefreshServiceProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$userTokenRefreshServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<UserTokenRefreshService> $createElement(
+          $ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  UserTokenRefreshService create(Ref ref) {
+    return userTokenRefreshService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(UserTokenRefreshService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<UserTokenRefreshService>(value),
+    );
+  }
+}
+
 String _$userTokenRefreshServiceHash() =>
     r'176c7d5e2f0dfb70602171f81f45b0651f52c0ae';
-
-/// See also [userTokenRefreshService].
-@ProviderFor(userTokenRefreshService)
-final userTokenRefreshServiceProvider =
-    Provider<UserTokenRefreshService>.internal(
-  userTokenRefreshService,
-  name: r'userTokenRefreshServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$userTokenRefreshServiceHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef UserTokenRefreshServiceRef = ProviderRef<UserTokenRefreshService>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

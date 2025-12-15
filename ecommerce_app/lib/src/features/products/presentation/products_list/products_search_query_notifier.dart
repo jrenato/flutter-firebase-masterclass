@@ -47,6 +47,6 @@ class ProductsSearchQueryNotifier extends _$ProductsSearchQueryNotifier {
 /// A provider that returns the search results for the current search query
 @riverpod
 Future<List<Product>> productsSearchResults(Ref ref) {
-  final searchQuery = ref.watch(productsSearchQueryNotifierProvider);
+  final searchQuery = ref.watch(productsSearchQueryProvider);
   return ref.watch(productsListSearchProvider(searchQuery).future);
 }

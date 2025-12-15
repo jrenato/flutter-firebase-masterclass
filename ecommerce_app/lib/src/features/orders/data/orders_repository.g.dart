@@ -6,22 +6,47 @@ part of 'orders_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$ordersRepositoryHash() => r'45fb01b5096c0c2f4c21a4355fa477e493377f35';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [ordersRepository].
 @ProviderFor(ordersRepository)
-final ordersRepositoryProvider = Provider<OrdersRepository>.internal(
-  ordersRepository,
-  name: r'ordersRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$ordersRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const ordersRepositoryProvider = OrdersRepositoryProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef OrdersRepositoryRef = ProviderRef<OrdersRepository>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class OrdersRepositoryProvider extends $FunctionalProvider<
+    OrdersRepository,
+    OrdersRepository,
+    OrdersRepository> with $Provider<OrdersRepository> {
+  const OrdersRepositoryProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'ordersRepositoryProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$ordersRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<OrdersRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  OrdersRepository create(Ref ref) {
+    return ordersRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(OrdersRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<OrdersRepository>(value),
+    );
+  }
+}
+
+String _$ordersRepositoryHash() => r'45fb01b5096c0c2f4c21a4355fa477e493377f35';

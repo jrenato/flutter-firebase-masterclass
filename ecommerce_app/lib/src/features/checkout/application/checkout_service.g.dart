@@ -6,22 +6,45 @@ part of 'checkout_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$checkoutServiceHash() => r'5eb3bc74e086e921d8b0c447576bedbda26d4145';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [checkoutService].
 @ProviderFor(checkoutService)
-final checkoutServiceProvider = Provider<CheckoutService>.internal(
-  checkoutService,
-  name: r'checkoutServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$checkoutServiceHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const checkoutServiceProvider = CheckoutServiceProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CheckoutServiceRef = ProviderRef<CheckoutService>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class CheckoutServiceProvider extends $FunctionalProvider<CheckoutService,
+    CheckoutService, CheckoutService> with $Provider<CheckoutService> {
+  const CheckoutServiceProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'checkoutServiceProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$checkoutServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<CheckoutService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  CheckoutService create(Ref ref) {
+    return checkoutService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CheckoutService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CheckoutService>(value),
+    );
+  }
+}
+
+String _$checkoutServiceHash() => r'5eb3bc74e086e921d8b0c447576bedbda26d4145';

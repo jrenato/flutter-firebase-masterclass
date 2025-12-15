@@ -6,208 +6,165 @@ part of 'user_orders_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userOrdersHash() => r'9de05d80e372e45d75dcd35c102c9cde16927978';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+/// Watch the list of user orders
+/// NOTE: Only watch this provider if the user is signed in.
+
+@ProviderFor(userOrders)
+const userOrdersProvider = UserOrdersProvider._();
 
 /// Watch the list of user orders
 /// NOTE: Only watch this provider if the user is signed in.
-///
-/// Copied from [userOrders].
-@ProviderFor(userOrders)
-final userOrdersProvider = AutoDisposeStreamProvider<List<Order>>.internal(
-  userOrders,
-  name: r'userOrdersProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$userOrdersHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef UserOrdersRef = AutoDisposeStreamProviderRef<List<Order>>;
-String _$matchingUserOrdersHash() =>
-    r'd617757f3d6919b19f69f927c1f2dd1747186a6d';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// Check if a product was previously purchased by the user
-///
-/// Copied from [matchingUserOrders].
-@ProviderFor(matchingUserOrders)
-const matchingUserOrdersProvider = MatchingUserOrdersFamily();
-
-/// Check if a product was previously purchased by the user
-///
-/// Copied from [matchingUserOrders].
-class MatchingUserOrdersFamily extends Family<AsyncValue<List<Order>>> {
-  /// Check if a product was previously purchased by the user
-  ///
-  /// Copied from [matchingUserOrders].
-  const MatchingUserOrdersFamily();
-
-  /// Check if a product was previously purchased by the user
-  ///
-  /// Copied from [matchingUserOrders].
-  MatchingUserOrdersProvider call(
-    String productId,
-  ) {
-    return MatchingUserOrdersProvider(
-      productId,
-    );
-  }
-
-  @override
-  MatchingUserOrdersProvider getProviderOverride(
-    covariant MatchingUserOrdersProvider provider,
-  ) {
-    return call(
-      provider.productId,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'matchingUserOrdersProvider';
-}
-
-/// Check if a product was previously purchased by the user
-///
-/// Copied from [matchingUserOrders].
-class MatchingUserOrdersProvider
-    extends AutoDisposeStreamProvider<List<Order>> {
-  /// Check if a product was previously purchased by the user
-  ///
-  /// Copied from [matchingUserOrders].
-  MatchingUserOrdersProvider(
-    String productId,
-  ) : this._internal(
-          (ref) => matchingUserOrders(
-            ref as MatchingUserOrdersRef,
-            productId,
-          ),
-          from: matchingUserOrdersProvider,
-          name: r'matchingUserOrdersProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$matchingUserOrdersHash,
-          dependencies: MatchingUserOrdersFamily._dependencies,
-          allTransitiveDependencies:
-              MatchingUserOrdersFamily._allTransitiveDependencies,
-          productId: productId,
+final class UserOrdersProvider extends $FunctionalProvider<
+        AsyncValue<List<Order>>, List<Order>, Stream<List<Order>>>
+    with $FutureModifier<List<Order>>, $StreamProvider<List<Order>> {
+  /// Watch the list of user orders
+  /// NOTE: Only watch this provider if the user is signed in.
+  const UserOrdersProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'userOrdersProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  MatchingUserOrdersProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.productId,
-  }) : super.internal();
+  @override
+  String debugGetCreateSourceHash() => _$userOrdersHash();
 
-  final String productId;
+  @$internal
+  @override
+  $StreamProviderElement<List<Order>> $createElement(
+          $ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
 
   @override
-  Override overrideWith(
-    Stream<List<Order>> Function(MatchingUserOrdersRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: MatchingUserOrdersProvider._internal(
-        (ref) => create(ref as MatchingUserOrdersRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        productId: productId,
-      ),
-    );
+  Stream<List<Order>> create(Ref ref) {
+    return userOrders(ref);
+  }
+}
+
+String _$userOrdersHash() => r'9de05d80e372e45d75dcd35c102c9cde16927978';
+
+/// Check if a product was previously purchased by the user
+
+@ProviderFor(matchingUserOrders)
+const matchingUserOrdersProvider = MatchingUserOrdersFamily._();
+
+/// Check if a product was previously purchased by the user
+
+final class MatchingUserOrdersProvider extends $FunctionalProvider<
+        AsyncValue<List<Order>>, List<Order>, Stream<List<Order>>>
+    with $FutureModifier<List<Order>>, $StreamProvider<List<Order>> {
+  /// Check if a product was previously purchased by the user
+  const MatchingUserOrdersProvider._(
+      {required MatchingUserOrdersFamily super.from,
+      required ProductID super.argument})
+      : super(
+          retry: null,
+          name: r'matchingUserOrdersProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$matchingUserOrdersHash();
+
+  @override
+  String toString() {
+    return r'matchingUserOrdersProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeStreamProviderElement<List<Order>> createElement() {
-    return _MatchingUserOrdersProviderElement(this);
+  $StreamProviderElement<List<Order>> $createElement(
+          $ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
+
+  @override
+  Stream<List<Order>> create(Ref ref) {
+    final argument = this.argument as ProductID;
+    return matchingUserOrders(
+      ref,
+      argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is MatchingUserOrdersProvider && other.productId == productId;
+    return other is MatchingUserOrdersProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, productId.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin MatchingUserOrdersRef on AutoDisposeStreamProviderRef<List<Order>> {
-  /// The parameter `productId` of this provider.
-  String get productId;
-}
+String _$matchingUserOrdersHash() =>
+    r'd617757f3d6919b19f69f927c1f2dd1747186a6d';
 
-class _MatchingUserOrdersProviderElement
-    extends AutoDisposeStreamProviderElement<List<Order>>
-    with MatchingUserOrdersRef {
-  _MatchingUserOrdersProviderElement(super.provider);
+/// Check if a product was previously purchased by the user
+
+final class MatchingUserOrdersFamily extends $Family
+    with $FunctionalFamilyOverride<Stream<List<Order>>, ProductID> {
+  const MatchingUserOrdersFamily._()
+      : super(
+          retry: null,
+          name: r'matchingUserOrdersProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  /// Check if a product was previously purchased by the user
+
+  MatchingUserOrdersProvider call(
+    ProductID productId,
+  ) =>
+      MatchingUserOrdersProvider._(argument: productId, from: this);
 
   @override
-  String get productId => (origin as MatchingUserOrdersProvider).productId;
+  String toString() => r'matchingUserOrdersProvider';
+}
+
+@ProviderFor(latestUserOrderId)
+const latestUserOrderIdProvider = LatestUserOrderIdProvider._();
+
+final class LatestUserOrderIdProvider extends $FunctionalProvider<
+        AsyncValue<UserOrderID>, UserOrderID, Stream<UserOrderID>>
+    with $FutureModifier<UserOrderID>, $StreamProvider<UserOrderID> {
+  const LatestUserOrderIdProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'latestUserOrderIdProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$latestUserOrderIdHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<UserOrderID> $createElement(
+          $ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
+
+  @override
+  Stream<UserOrderID> create(Ref ref) {
+    return latestUserOrderId(ref);
+  }
 }
 
 String _$latestUserOrderIdHash() => r'82bed71230a32eda0b8d548db229db6a2afd60d7';
-
-/// See also [latestUserOrderId].
-@ProviderFor(latestUserOrderId)
-final latestUserOrderIdProvider =
-    AutoDisposeStreamProvider<UserOrderID>.internal(
-  latestUserOrderId,
-  name: r'latestUserOrderIdProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$latestUserOrderIdHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LatestUserOrderIdRef = AutoDisposeStreamProviderRef<UserOrderID>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

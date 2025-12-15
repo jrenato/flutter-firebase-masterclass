@@ -6,22 +6,45 @@ part of 'cart_sync_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$cartSyncServiceHash() => r'cf9f84eba25f9912f92c7064e699c8d977925b15';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [cartSyncService].
 @ProviderFor(cartSyncService)
-final cartSyncServiceProvider = Provider<CartSyncService>.internal(
-  cartSyncService,
-  name: r'cartSyncServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$cartSyncServiceHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const cartSyncServiceProvider = CartSyncServiceProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CartSyncServiceRef = ProviderRef<CartSyncService>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class CartSyncServiceProvider extends $FunctionalProvider<CartSyncService,
+    CartSyncService, CartSyncService> with $Provider<CartSyncService> {
+  const CartSyncServiceProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'cartSyncServiceProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$cartSyncServiceHash();
+
+  @$internal
+  @override
+  $ProviderElement<CartSyncService> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  CartSyncService create(Ref ref) {
+    return cartSyncService(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CartSyncService value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CartSyncService>(value),
+    );
+  }
+}
+
+String _$cartSyncServiceHash() => r'cf9f84eba25f9912f92c7064e699c8d977925b15';

@@ -6,22 +6,49 @@ part of 'admin_product_edit_controller.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(AdminProductEditController)
+const adminProductEditControllerProvider =
+    AdminProductEditControllerProvider._();
+
+final class AdminProductEditControllerProvider
+    extends $AsyncNotifierProvider<AdminProductEditController, void> {
+  const AdminProductEditControllerProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'adminProductEditControllerProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$adminProductEditControllerHash();
+
+  @$internal
+  @override
+  AdminProductEditController create() => AdminProductEditController();
+}
+
 String _$adminProductEditControllerHash() =>
     r'4889ae22666506a4277749ed0b1b98e35ce73194';
 
-/// See also [AdminProductEditController].
-@ProviderFor(AdminProductEditController)
-final adminProductEditControllerProvider =
-    AutoDisposeAsyncNotifierProvider<AdminProductEditController, void>.internal(
-  AdminProductEditController.new,
-  name: r'adminProductEditControllerProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$adminProductEditControllerHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef _$AdminProductEditController = AutoDisposeAsyncNotifier<void>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+abstract class _$AdminProductEditController extends $AsyncNotifier<void> {
+  FutureOr<void> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    build();
+    final ref = this.ref as $Ref<AsyncValue<void>, void>;
+    final element = ref.element as $ClassProviderElement<
+        AnyNotifier<AsyncValue<void>, void>,
+        AsyncValue<void>,
+        Object?,
+        Object?>;
+    element.handleValue(ref, null);
+  }
+}

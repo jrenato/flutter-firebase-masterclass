@@ -6,74 +6,146 @@ part of 'auth_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(authRepository)
+const authRepositoryProvider = AuthRepositoryProvider._();
+
+final class AuthRepositoryProvider
+    extends $FunctionalProvider<AuthRepository, AuthRepository, AuthRepository>
+    with $Provider<AuthRepository> {
+  const AuthRepositoryProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'authRepositoryProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$authRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<AuthRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  AuthRepository create(Ref ref) {
+    return authRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(AuthRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<AuthRepository>(value),
+    );
+  }
+}
+
 String _$authRepositoryHash() => r'fa5b8337b7daf1a6e6ab14268c91ea9089629ec0';
 
-/// See also [authRepository].
-@ProviderFor(authRepository)
-final authRepositoryProvider = Provider<AuthRepository>.internal(
-  authRepository,
-  name: r'authRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$authRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(authStateChanges)
+const authStateChangesProvider = AuthStateChangesProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef AuthRepositoryRef = ProviderRef<AuthRepository>;
+final class AuthStateChangesProvider extends $FunctionalProvider<
+        AsyncValue<AppUser?>, AppUser?, Stream<AppUser?>>
+    with $FutureModifier<AppUser?>, $StreamProvider<AppUser?> {
+  const AuthStateChangesProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'authStateChangesProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$authStateChangesHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<AppUser?> $createElement($ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
+
+  @override
+  Stream<AppUser?> create(Ref ref) {
+    return authStateChanges(ref);
+  }
+}
+
 String _$authStateChangesHash() => r'199a9132d64e85888f728def3717a5163d8558aa';
 
-/// See also [authStateChanges].
-@ProviderFor(authStateChanges)
-final authStateChangesProvider = StreamProvider<AppUser?>.internal(
-  authStateChanges,
-  name: r'authStateChangesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$authStateChangesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(idTokenChanges)
+const idTokenChangesProvider = IdTokenChangesProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef AuthStateChangesRef = StreamProviderRef<AppUser?>;
+final class IdTokenChangesProvider extends $FunctionalProvider<
+        AsyncValue<AppUser?>, AppUser?, Stream<AppUser?>>
+    with $FutureModifier<AppUser?>, $StreamProvider<AppUser?> {
+  const IdTokenChangesProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'idTokenChangesProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$idTokenChangesHash();
+
+  @$internal
+  @override
+  $StreamProviderElement<AppUser?> $createElement($ProviderPointer pointer) =>
+      $StreamProviderElement(pointer);
+
+  @override
+  Stream<AppUser?> create(Ref ref) {
+    return idTokenChanges(ref);
+  }
+}
+
 String _$idTokenChangesHash() => r'dcd9db4e15cd156817a4895049e10fa214e6f818';
 
-/// See also [idTokenChanges].
-@ProviderFor(idTokenChanges)
-final idTokenChangesProvider = StreamProvider<AppUser?>.internal(
-  idTokenChanges,
-  name: r'idTokenChangesProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$idTokenChangesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+@ProviderFor(isCurrentUserAdmin)
+const isCurrentUserAdminProvider = IsCurrentUserAdminProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef IdTokenChangesRef = StreamProviderRef<AppUser?>;
+final class IsCurrentUserAdminProvider
+    extends $FunctionalProvider<AsyncValue<bool>, bool, FutureOr<bool>>
+    with $FutureModifier<bool>, $FutureProvider<bool> {
+  const IsCurrentUserAdminProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'isCurrentUserAdminProvider',
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$isCurrentUserAdminHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<bool> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<bool> create(Ref ref) {
+    return isCurrentUserAdmin(ref);
+  }
+}
+
 String _$isCurrentUserAdminHash() =>
     r'b542c95009454e9386db32c4916bd6b9e2ba4a24';
-
-/// See also [isCurrentUserAdmin].
-@ProviderFor(isCurrentUserAdmin)
-final isCurrentUserAdminProvider = AutoDisposeFutureProvider<bool>.internal(
-  isCurrentUserAdmin,
-  name: r'isCurrentUserAdminProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$isCurrentUserAdminHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef IsCurrentUserAdminRef = AutoDisposeFutureProviderRef<bool>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -6,177 +6,125 @@ part of 'products_search_repository.dart';
 // RiverpodGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
+
+@ProviderFor(productsSearchRepository)
+const productsSearchRepositoryProvider = ProductsSearchRepositoryProvider._();
+
+final class ProductsSearchRepositoryProvider extends $FunctionalProvider<
+    ProductsSearchRepository,
+    ProductsSearchRepository,
+    ProductsSearchRepository> with $Provider<ProductsSearchRepository> {
+  const ProductsSearchRepositoryProvider._()
+      : super(
+          from: null,
+          argument: null,
+          retry: null,
+          name: r'productsSearchRepositoryProvider',
+          isAutoDispose: false,
+          dependencies: null,
+          $allTransitiveDependencies: null,
+        );
+
+  @override
+  String debugGetCreateSourceHash() => _$productsSearchRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<ProductsSearchRepository> $createElement(
+          $ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  ProductsSearchRepository create(Ref ref) {
+    return productsSearchRepository(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(ProductsSearchRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<ProductsSearchRepository>(value),
+    );
+  }
+}
+
 String _$productsSearchRepositoryHash() =>
     r'14d9d849934f554cafe9f7bcb7d246ff42e76c74';
 
-/// See also [productsSearchRepository].
-@ProviderFor(productsSearchRepository)
-final productsSearchRepositoryProvider =
-    Provider<ProductsSearchRepository>.internal(
-  productsSearchRepository,
-  name: r'productsSearchRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$productsSearchRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef ProductsSearchRepositoryRef = ProviderRef<ProductsSearchRepository>;
-String _$productsListSearchHash() =>
-    r'ba15dafcfc53f8d3fcfcc8f0c2eba990897f7b37';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-/// See also [productsListSearch].
 @ProviderFor(productsListSearch)
-const productsListSearchProvider = ProductsListSearchFamily();
+const productsListSearchProvider = ProductsListSearchFamily._();
 
-/// See also [productsListSearch].
-class ProductsListSearchFamily extends Family<AsyncValue<List<Product>>> {
-  /// See also [productsListSearch].
-  const ProductsListSearchFamily();
-
-  /// See also [productsListSearch].
-  ProductsListSearchProvider call(
-    String query,
-  ) {
-    return ProductsListSearchProvider(
-      query,
-    );
-  }
-
-  @override
-  ProductsListSearchProvider getProviderOverride(
-    covariant ProductsListSearchProvider provider,
-  ) {
-    return call(
-      provider.query,
-    );
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'productsListSearchProvider';
-}
-
-/// See also [productsListSearch].
-class ProductsListSearchProvider
-    extends AutoDisposeFutureProvider<List<Product>> {
-  /// See also [productsListSearch].
-  ProductsListSearchProvider(
-    String query,
-  ) : this._internal(
-          (ref) => productsListSearch(
-            ref as ProductsListSearchRef,
-            query,
-          ),
-          from: productsListSearchProvider,
+final class ProductsListSearchProvider extends $FunctionalProvider<
+        AsyncValue<List<Product>>, List<Product>, FutureOr<List<Product>>>
+    with $FutureModifier<List<Product>>, $FutureProvider<List<Product>> {
+  const ProductsListSearchProvider._(
+      {required ProductsListSearchFamily super.from,
+      required String super.argument})
+      : super(
+          retry: null,
           name: r'productsListSearchProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$productsListSearchHash,
-          dependencies: ProductsListSearchFamily._dependencies,
-          allTransitiveDependencies:
-              ProductsListSearchFamily._allTransitiveDependencies,
-          query: query,
+          isAutoDispose: true,
+          dependencies: null,
+          $allTransitiveDependencies: null,
         );
 
-  ProductsListSearchProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.query,
-  }) : super.internal();
-
-  final String query;
+  @override
+  String debugGetCreateSourceHash() => _$productsListSearchHash();
 
   @override
-  Override overrideWith(
-    FutureOr<List<Product>> Function(ProductsListSearchRef provider) create,
-  ) {
-    return ProviderOverride(
-      origin: this,
-      override: ProductsListSearchProvider._internal(
-        (ref) => create(ref as ProductsListSearchRef),
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        query: query,
-      ),
-    );
+  String toString() {
+    return r'productsListSearchProvider'
+        ''
+        '($argument)';
   }
 
+  @$internal
   @override
-  AutoDisposeFutureProviderElement<List<Product>> createElement() {
-    return _ProductsListSearchProviderElement(this);
+  $FutureProviderElement<List<Product>> $createElement(
+          $ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<Product>> create(Ref ref) {
+    final argument = this.argument as String;
+    return productsListSearch(
+      ref,
+      argument,
+    );
   }
 
   @override
   bool operator ==(Object other) {
-    return other is ProductsListSearchProvider && other.query == query;
+    return other is ProductsListSearchProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, query.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin ProductsListSearchRef on AutoDisposeFutureProviderRef<List<Product>> {
-  /// The parameter `query` of this provider.
-  String get query;
-}
+String _$productsListSearchHash() =>
+    r'ba15dafcfc53f8d3fcfcc8f0c2eba990897f7b37';
 
-class _ProductsListSearchProviderElement
-    extends AutoDisposeFutureProviderElement<List<Product>>
-    with ProductsListSearchRef {
-  _ProductsListSearchProviderElement(super.provider);
+final class ProductsListSearchFamily extends $Family
+    with $FunctionalFamilyOverride<FutureOr<List<Product>>, String> {
+  const ProductsListSearchFamily._()
+      : super(
+          retry: null,
+          name: r'productsListSearchProvider',
+          dependencies: null,
+          $allTransitiveDependencies: null,
+          isAutoDispose: true,
+        );
+
+  ProductsListSearchProvider call(
+    String query,
+  ) =>
+      ProductsListSearchProvider._(argument: query, from: this);
 
   @override
-  String get query => (origin as ProductsListSearchProvider).query;
+  String toString() => r'productsListSearchProvider';
 }
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
